@@ -1,0 +1,36 @@
+{
+  "name": "@repo/drizzle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "db:generate": "pnpm env:load drizzle-kit generate:pg",
+    "db:migrate": "pnpm env:load tsx migrate.ts",
+    "db:studio": "pnpm env:load drizzle-kit studio",
+    "db:drop": "pnpm env:load drizzle-kit drop",
+    "db:pull": "pnpm env:load drizzle-kit introspect:pg",
+    "db:push": "pnpm env:load drizzle-kit push:pg",
+    "db:check": "pnpm env:load drizzle-kit check:pg",
+    "lint": "eslint .",
+    "env:load": "dotenv -e ../../.env --"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@repo/env": "workspace:*",
+    "dotenv-cli": "7.4.1",
+    "drizzle-orm": "^0.30.1",
+    "postgres": "^3.4.3",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/eslint": "^8.56.5",
+    "@types/node": "^20.11.27",
+    "drizzle-kit": "^0.20.14",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.2"
+  }
+}

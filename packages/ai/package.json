@@ -1,0 +1,25 @@
+{
+  "name": "@repo/ai",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@repo/env": "workspace:*",
+    "openai": "^4.29.0",
+    "ai": "^3.0.10"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@repo/eslint-config": "workspace:*"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@repo/eslint-config/lib"
+    ]
+  }
+}
