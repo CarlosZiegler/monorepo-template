@@ -10,6 +10,7 @@ export const env = createEnv({
     DIRECT_DATABASE_URL: z.string().min(1),
     OPENAI_API_KEY: z.string().min(1),
     SUPABASE_SERVICE_ROLE_KEY: z.string().min(1),
+    RESEND_API_KEY: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_VERCEL_URL: z.string().url().min(1),
@@ -29,6 +30,7 @@ export const env = createEnv({
     DIRECT_DATABASE_URL: process.env.DATABASE_URL,
     SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY,
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
 
     NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL,
     NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,

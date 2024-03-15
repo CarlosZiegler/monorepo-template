@@ -1,4 +1,3 @@
-import { GeistSans } from "geist/font/sans";
 import "../globals.css";
 
 import { Toaster } from "@/components/ui/sonner";
@@ -22,7 +21,7 @@ export default function RootLayout({
   params: { locale: string };
 }) {
   return (
-    <html lang="en" className={GeistSans.className} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body
         className="bg-background text-foreground"
         suppressHydrationWarning={true}

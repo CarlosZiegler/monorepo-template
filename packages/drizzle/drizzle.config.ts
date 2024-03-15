@@ -3,8 +3,8 @@ import type { Config } from "drizzle-kit";
 import { env } from "@repo/env";
 
 export default {
-  schema: "./lib/db/schema",
-  out: "./lib/db/migrations",
+  schema: "./migrations/schema.ts",
+  out: "./migrations",
   driver: "pg",
   dbCredentials: {
     connectionString: env.DATABASE_URL,

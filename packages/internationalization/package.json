@@ -2,6 +2,12 @@
   "name": "@repo/internationalization",
   "main": "./index.ts",
   "types": "./index.ts",
+  "files": [
+    "index.ts",
+    "lib/client.ts",
+    "lib/locale-middleware.ts",
+    "lib/server.ts"
+  ],
   "version": "0.0.0",
   "private": true,
   "scripts": {

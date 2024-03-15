@@ -4,10 +4,22 @@ import { Suspense } from "react";
 import Layout from "./layout";
 import Page from "./page";
 
-vi.mock("server-only", () => ({}));
+vi.mock("server-only", () => {
+  return {};
+});
 
 test.each(["client", "server", "layout"])("%s component", async (keyword) => {
-  render(<Page />);
+  render(
+    <Layout
+      params={{
+        locale: "en",
+      }}
+    >
+      <Suspense fallback="loading">
+        <Page />
+      </Suspense>
+    </Layout>
+  );
 
   await screen.findByText(keyword);
 });

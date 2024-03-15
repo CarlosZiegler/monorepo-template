@@ -1,25 +1,16 @@
 {
-  "name": "@repo/trpc",
-  "main": "./root.ts",
-  "types": "./root.ts",
-  "files": [
-    "root.ts",
-    "server/api/trpc.ts",
-    "server/api/shared.ts"
-  ],
+  "name": "@repo/email",
+  "main": "./index.ts",
+  "types": "./index.ts",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "lint": "eslint ."
   },
   "dependencies": {
-    "@repo/drizzle": "workspace:*",
     "@repo/env": "workspace:*",
-    "@repo/supabase": "workspace:*",
-    "@repo/internationalization": "workspace:*",
-    "@trpc/server": "next",
-    "superjson": "^2.2.1",
-    "zod": "^3.22.4"
+    "nanoid": "^5.0.6",
+    "resend": "^3.2.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

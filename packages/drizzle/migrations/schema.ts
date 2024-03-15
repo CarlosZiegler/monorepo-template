@@ -10,9 +10,9 @@ import {
   foreignKey,
   boolean,
   primaryKey,
-  jsonb,
 } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
+import { jsonb } from "drizzle-orm/pg-core";
 
 export const keyStatus = pgEnum("key_status", [
   "default",

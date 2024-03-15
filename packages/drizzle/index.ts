@@ -1,7 +1,7 @@
 import { drizzle } from "drizzle-orm/postgres-js";
 import type { PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
-import * as schema from "./schema";
+import * as schema from "./migrations/schema";
 import { env } from "@repo/env";
 
 type DBType = PostgresJsDatabase<typeof schema>;
@@ -30,6 +30,6 @@ if (env.NODE_ENV === "production") {
 }
 
 export { db };
-export * from "./schema";
+export * from "./migrations/schema";
 export * from "drizzle-orm";
 export * from "drizzle-kit";

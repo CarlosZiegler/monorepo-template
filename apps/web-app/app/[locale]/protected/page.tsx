@@ -3,7 +3,7 @@ import AuthButton from "@/components/auth-button";
 import Header from "@/components/header";
 import { redirect } from "next/navigation";
 import { createServerClient } from "@repo/supabase/server";
-import Profile from "./Profile";
+import Profile from "./profile";
 
 export default async function ProtectedPage() {
   const supabase = createServerClient();
