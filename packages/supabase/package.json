@@ -2,7 +2,15 @@
   "name": "@repo/supabase",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "files": [
+    "admin.ts",
+    "client.ts",
+    "middleware.ts",
+    "server.ts",
+    "services/auth.ts"
+  ],
   "scripts": {
     "lint": "eslint .",
     "env:load": "dotenv -e ../../.env --"
@@ -23,7 +31,7 @@
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/eslint": "^8.56.5",
-    "@types/node": "^20.11.27",
+    "@types/node": "^20.11.28s",
     "drizzle-kit": "^0.20.14",
     "eslint": "^8.57.0",
     "typescript": "^5.4.2"

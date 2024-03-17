@@ -10,7 +10,6 @@ export const profileRouter = createTRPCRouter({
   getUsers: privateProcedure.query(async ({ ctx }) => {
     const t = await getI18n();
     const currentLanguage = getCurrentLocale();
-    console.log(t("language.de"));
 
     const usersFromDb = await db.query.users.findMany();
 

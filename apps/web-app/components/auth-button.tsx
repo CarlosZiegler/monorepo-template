@@ -1,34 +1,28 @@
 import { createServerClient } from "@repo/supabase/server";
-import {
-  getCurrentLocale,
-  getI18n,
-} from "@repo/internationalization/lib/server";
+import { getI18n } from "@repo/internationalization/lib/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { LanguageSwitcher } from "./language-switcher";
+import { getCurrentUser, signOut } from "@repo/supabase/services/auth";
 
 export default async function AuthButton() {
   const t = await getI18n();
-  const current = getCurrentLocale();
-  console.log(current);
-  const supabase = createServerClient();
 
   const {
     data: { user },
-  } = await supabase.auth.getUser();
+  } = await getCurrentUser();
 
-  const signOut = async () => {
+  const onSignOut = async () => {
     "use server";
 
-    const supabase = createServerClient();
-    await supabase.auth.signOut();
+    await signOut();
     return redirect("/login");
   };
 
   return user ? (
     <div className="flex items-center gap-4">
       Hey, {user.email}!{t("language.de")}
-      <form action={signOut}>
+      <form action={onSignOut}>
         <button className="py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover">
           Logout {t("logout")}
         </button>

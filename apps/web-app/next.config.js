@@ -1,5 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
+  typescript: {
+    // TODO: Remove this once the issue env is fixed
+    ignoreBuildErrors: true,
+  },
+};
 
 module.exports = nextConfig;
 

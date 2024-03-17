@@ -1,7 +1,7 @@
 import { env } from "@repo/env";
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(
+const supabaseAdmin = createClient(
   env.NEXT_PUBLIC_SUPABASE_URL,
   env.SUPABASE_SERVICE_ROLE_KEY,
   {
@@ -13,4 +13,4 @@ const supabase = createClient(
 );
 
 // Access auth admin api
-export const supabaseAdminAuthClient = supabase.auth.admin;
+export const supabaseAdminAuthClient = supabaseAdmin.auth.admin;

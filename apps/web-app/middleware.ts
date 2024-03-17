@@ -7,15 +7,36 @@ export async function middleware(request: NextRequest) {
   requestHeaders.set("x-url", request.url);
 
   if (request.nextUrl.pathname.startsWith("/api")) {
-    console.log("api requestHeaders", requestHeaders);
-    const response = NextResponse.next({
+    const nextResponse = NextResponse.next({
       headers: requestHeaders,
     });
-    return await updateSession(request, response);
+    const { error, response } = await updateSession(request, nextResponse);
+
+    if (request.nextUrl.pathname.startsWith("/api/trpc")) {
+      // The TRPC has your own validation and context
+      return response;
+    }
+
+    if (error) {
+      return NextResponse.json(
+        {
+          error: error.message,
+          status: error.status || 500,
+        },
+        {
+          status: error.status || 500,
+          statusText: error.message,
+          headers: requestHeaders,
+        }
+      );
+    }
+
+    return response;
   }
-  const response = I18nMiddleware(request);
-  response.headers.set("x-url", request.url);
-  return await updateSession(request, response);
+  const nextResponse = I18nMiddleware(request);
+  nextResponse.headers.set("x-url", request.url);
+  const { response } = await updateSession(request, nextResponse);
+  return response;
 }
 
 export const config = {

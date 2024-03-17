@@ -1,5 +1,5 @@
 {
-  "name": "@repo/email",
+  "name": "@repo/upstash",
   "main": "./index.ts",
   "types": "./index.ts",
   "version": "0.0.0",
@@ -9,12 +9,14 @@
   },
   "dependencies": {
     "@repo/env": "workspace:*",
-    "nanoid": "^5.0.6",
-    "resend": "^3.2.0"
+    "@upstash/qstash": "^2.3.1",
+    "@upstash/redis": "^1.28.4",
+    "@upstash/ratelimit": "^1.0.1",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@repo/eslint-config": "workspace:*",
     "typescript": "^5.4.2"
   },
   "eslintConfig": {

@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { SubmitButton } from "./submit-button";
 import { createServerClient } from "@repo/supabase/server";
+import { signUpWithPasswordCredentials } from "@repo/supabase";
 
 export default function Login({
   searchParams,
@@ -29,15 +30,14 @@ export default function Login({
     return redirect("/protected");
   };
 
-  const signUp = async (formData: FormData) => {
+  const onSignUp = async (formData: FormData) => {
     "use server";
 
     const origin = headers().get("origin");
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
-    const supabase = createServerClient();
 
-    const { error } = await supabase.auth.signUp({
+    const { error } = await signUpWithPasswordCredentials({
       email,
       password,
       options: {
@@ -58,7 +58,6 @@ export default function Login({
         href="/"
         className="absolute left-8 top-8 py-2 px-4 rounded-md no-underline text-foreground bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm"
       >
-
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -104,7 +103,7 @@ export default function Login({
           Sign In
         </SubmitButton>
         <SubmitButton
-          formAction={signUp}
+          formAction={onSignUp}
           className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
           pendingText="Signing Up..."
         >

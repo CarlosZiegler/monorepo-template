@@ -54,14 +54,11 @@ export const updateSession = async (
     }
   );
 
-  const { error } = await supabase.auth.getUser();
+  const { error, data } = await supabase.auth.getUser();
 
-  if (error) {
-    return new NextResponse(null, {
-      status: 401,
-      statusText: "Unauthorized",
-    });
-  }
-
-  return response;
+  return {
+    user: data.user,
+    error,
+    response,
+  };
 };
