@@ -8,7 +8,9 @@
     "#### UI ####": "#### ui ####",
     "ui:add": "pnpm dlx shadcn-ui@latest add",
     "#### TEST ####": "#### ui ####",
-    "test": "vitest"
+    "test": "vitest",
+    "#### ENV ####": "#### ui ####",
+    "vercel:update:env": "vercel env add"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",

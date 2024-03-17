@@ -1,9 +1,7 @@
 import AuthButton from "@/components/auth-button";
 
 import Header from "@/components/header";
-import { redirect } from "next/navigation";
-import { createServerClient } from "@repo/supabase/server";
-import Profile from "./profile";
+import Profile from "./user-profile";
 
 export default async function ProtectedPage() {
   return (
