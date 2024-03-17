@@ -23,4 +23,9 @@ export const profileRouter = createTRPCRouter({
       usersFromDb,
     };
   }),
+  getCurrentUser: privateProcedure.query(async ({ ctx }) => {
+    return {
+      user: ctx.user,
+    };
+  }),
 });

@@ -26,13 +26,13 @@ export default function RootLayout({
         className="bg-background text-foreground"
         suppressHydrationWarning={true}
       >
-        <main className="min-h-screen flex flex-col items-center">
-          <Providers locale={locale}>
-            {children}
-            <Toaster />
-          </Providers>
-        </main>
+        <Providers locale={locale}>
+          {children}
+          <Toaster />
+        </Providers>
       </body>
     </html>
   );
 }
+
+RootLayout.displayName = "RootLayout";

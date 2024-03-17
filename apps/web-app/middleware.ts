@@ -6,6 +6,8 @@ export async function middleware(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-url", request.url);
 
+  console.log("middleware", request.url);
+
   if (request.nextUrl.pathname.startsWith("/api")) {
     const nextResponse = NextResponse.next({
       headers: requestHeaders,

@@ -1,4 +1,3 @@
-import { createServerClient } from "@repo/supabase/server";
 import { getCurrentUser } from "@repo/supabase/services/auth";
 import { redirect } from "next/navigation";
 

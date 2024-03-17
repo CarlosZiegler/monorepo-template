@@ -1,3 +1,4 @@
+import { authRouter } from "./server/api/routers/auth";
 import { profileRouter } from "./server/api/routers/profiles";
 import {
   createTRPCRouter,
@@ -6,6 +7,7 @@ import {
 } from "./server/api/trpc";
 
 export const appRouter = createTRPCRouter({
+  auth: authRouter,
   profiles: profileRouter,
 });
 

@@ -5,6 +5,9 @@ import {
   fetchRequestHandler,
 } from "@repo/trpc/server/api/trpc";
 import { appRouter } from "@repo/trpc/root";
+import { env } from "@repo/env";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
@@ -20,18 +23,19 @@ const createContext = async (req: NextRequest) => {
 
 const handler = async (req: NextRequest) => {
   try {
+    cookies();
     const response = await fetchRequestHandler({
       endpoint: "/api/trpc",
       req,
       router: appRouter,
       createContext: () => createContext(req),
-      onError: ({ error, path }) => {
+      onError: ({ path, error }: any) => {
         console.error(
           `❌ tRPC failed on ${path ?? "<no-path>"}: ${error.message}`
         );
-
-        if (error.code === "INTERNAL_SERVER_ERROR") {
-          // TODO: send to bug reporting
+        console.error(error);
+        if (error.message === "Unauthorized") {
+          redirect("/login");
         }
       },
     });
