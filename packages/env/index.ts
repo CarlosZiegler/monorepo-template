@@ -1,3 +1,4 @@
+// @ts-ignore - Check here : https://github.com/t3-oss/t3-env/issues/189#issuecomment-2001960535
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
@@ -33,7 +34,7 @@ export const env = createEnv({
   runtimeEnv: {
     VERCEL_ENV: process.env.VERCEL_ENV,
     NODE_ENV: process.env.NODE_ENV,
-    
+
     // Backend environment variables
     DATABASE_URL: process.env.DATABASE_URL,
     DIRECT_DATABASE_URL: process.env.DATABASE_URL,
@@ -45,7 +46,7 @@ export const env = createEnv({
     QSTASH_TOKEN: process.env.QSTASH_TOKEN,
     UPSTASH_REDIS_REST_URL: process.env.UPSTASH_REDIS_REST_URL,
     UPSTASH_REDIS_REST_TOKEN: process.env.UPSTASH_REDIS_REST_TOKEN,
-    
+
     // Frontend environment variables
     NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL,
     NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
