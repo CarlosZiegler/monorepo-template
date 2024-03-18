@@ -1,27 +1,24 @@
-import { redirect } from "next/navigation";
-import { getCurrentUser } from "@repo/supabase/services/auth";
+"use client";
 import Header from "@/components/header";
-import Footer from "@/components/footer";
-import { cookies } from "next/headers";
+import Sidebar from "@/components/sidebar";
+import AuthProvider from "@/components/auth-provider";
 
-export default async function ProtectedLayout({
+export const dynamic = "force-dynamic";
+
+export default function DashboardProtectedLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const {
-    data: { user },
-  } = await getCurrentUser();
-
-  console.log("ProtectedLayout", user);
-  if (!user) {
-    return redirect("/login");
-  }
   return (
-    <div>
-      <Header />
-      {children}
-      <Footer />
-    </div>
+    <AuthProvider>
+      <div>
+        <Header />
+        <div className="flex h-screen overflow-hidden">
+          <Sidebar />
+          <main className="w-full pt-16">{children}</main>
+        </div>
+      </div>
+    </AuthProvider>
   );
 }

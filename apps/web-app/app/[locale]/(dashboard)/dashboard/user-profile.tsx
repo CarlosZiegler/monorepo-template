@@ -1,15 +1,25 @@
 "use client";
 
+import { LoadingSpinner } from "@/components/loading-spinner";
 import { api } from "@/lib/trpc/react";
+import { useRouter } from "next/navigation";
 
 export default function Profile() {
-  const { data } = api.profiles.getUsers.useQuery();
+  const router = useRouter();
+  const { data, isLoading, error } = api.profiles.getUsers.useQuery();
+  console.log({ data, error });
+  if (error?.data?.httpStatus === 401) {
+    console.log("redirecting to login");
+
+    router.replace("/sign-in");
+  }
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   return (
-    <div
-      className=" min-h-full
-    flex-1 flex flex-col gap-20 items-center"
-    >
+    <div className="flex-1 flex flex-col gap-20 items-center">
       {data?.users.data.users.map((user) => (
         <div key={user.id}>
           <h1>{user.email}</h1>

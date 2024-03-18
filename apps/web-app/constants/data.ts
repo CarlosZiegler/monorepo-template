@@ -143,7 +143,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: "Login",
-    href: "/login",
+    href: "/sign-in",
     icon: "login",
     label: "login",
   },

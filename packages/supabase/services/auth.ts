@@ -4,23 +4,18 @@ import {
 } from "@supabase/supabase-js";
 import { createServerClient } from "../server";
 
-export type SupabaseServerClientType = {
-  supabase?: ReturnType<typeof createServerClient>;
-};
-
 export type SignInWithPasswordCredentialsProps =
   SignInWithPasswordCredentials & {
     email: string;
-    supabase?: ReturnType<typeof createServerClient>;
   };
 
 export const signInWithPasswordCredentials = async ({
   email,
   password,
-  supabase,
+
   options,
 }: SignInWithPasswordCredentialsProps) => {
-  const supabaseClient = supabase || createServerClient();
+  const supabaseClient = createServerClient();
   return supabaseClient.auth.signInWithPassword({
     email,
     password,
@@ -31,16 +26,14 @@ export const signInWithPasswordCredentials = async ({
 export type SignUpWithPasswordCredentialsProps =
   SignUpWithPasswordCredentials & {
     email: string;
-    supabase?: ReturnType<typeof createServerClient>;
   };
 
 export const signUpWithPasswordCredentials = async ({
   email,
   password,
   options,
-  supabase,
 }: SignUpWithPasswordCredentialsProps) => {
-  const supabaseClient = supabase || createServerClient();
+  const supabaseClient = createServerClient();
   return supabaseClient.auth.signUp({
     email,
     password,
@@ -48,16 +41,16 @@ export const signUpWithPasswordCredentials = async ({
   });
 };
 
-export const signOut = async (
-  supabase?: SupabaseServerClientType["supabase"]
-) => {
-  const supabaseClient = supabase || createServerClient();
+export const signOut = async () => {
+  const supabaseClient = createServerClient();
   return supabaseClient.auth.signOut();
 };
 
-export const getCurrentUser = async (
-  supabase?: SupabaseServerClientType["supabase"]
-) => {
-  const supabaseClient = supabase || createServerClient();
-  return supabaseClient.auth.getUser();
+export const getCurrentUser = async () => {
+  const supabaseClient = createServerClient();
+  const { data, error } = await supabaseClient.auth.getUser();
+  if (error) {
+    throw error;
+  }
+  return data.user;
 };

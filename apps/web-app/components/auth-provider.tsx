@@ -1,15 +1,29 @@
-import { getCurrentUser } from "@repo/supabase/services/auth";
-import { redirect } from "next/navigation";
+"use client";
+import { api } from "@/lib/trpc/react";
+import { useQueryClient } from "@tanstack/react-query";
 
-export default async function AuthProvider({
+import { useRouter } from "next/navigation";
+import { LoadingSpinner } from "./loading-spinner";
+import { useEffect } from "react";
+
+export default function AuthProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { data } = await getCurrentUser();
+  const router = useRouter();
+  const { error, isLoading } = api.profiles.getCurrentUser.useQuery();
+  const queryClient = useQueryClient();
 
-  if (!data.user) {
-    return redirect("/login");
+  useEffect(() => {
+    if (error?.data?.httpStatus === 401) {
+      queryClient.clear();
+      router.replace("/sign-in");
+    }
+  }, [error, queryClient, router]);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
   }
 
   return children;

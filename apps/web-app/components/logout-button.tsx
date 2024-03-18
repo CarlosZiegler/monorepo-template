@@ -9,7 +9,7 @@ export default async function LogoutButton() {
     "use server";
 
     await signOut();
-    return redirect("/login");
+    return redirect("/sign-in");
   };
 
   return (
