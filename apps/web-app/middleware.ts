@@ -1,41 +1,50 @@
 import { updateSession } from "@repo/supabase/middleware";
-import { NextResponse, type NextRequest } from "next/server";
+
+import { NextRequest, NextResponse } from "next/server";
 import { I18nMiddleware } from "@repo/internationalization/lib/locale-middleware";
+
+const allowedRoutes = [
+  "/sign-",
+  "/de/sign-",
+  "/en/sign-",
+  "/api/trpc",
+  "/en/api/trpc",
+  "/de/api/trpc",
+];
+
+const exactRoutes = ["/", "/de", "/en"];
 
 export async function middleware(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-url", request.url);
 
-  if (request.nextUrl.pathname.startsWith("/api")) {
-    const nextResponse = NextResponse.next({
-      headers: requestHeaders,
-    });
-    const { error, response } = await updateSession(request, nextResponse);
-
-    if (request.nextUrl.pathname.startsWith("/api/trpc")) {
-      // The TRPC has your own validation and context
-      return response;
-    }
-
-    if (error) {
-      return NextResponse.json(
-        {
-          error: error.message,
-          status: error.status || 500,
-        },
-        {
-          status: error.status || 500,
-          statusText: error.message,
-          headers: requestHeaders,
-        }
-      );
-    }
-
-    return response;
-  }
   const nextResponse = I18nMiddleware(request);
   nextResponse.headers.set("x-url", request.url);
-  const { response } = await updateSession(request, nextResponse);
+
+  const { error, response } = await updateSession(request, nextResponse);
+
+  console.log("patch name", request.nextUrl.pathname);
+  if (error?.status === 401) {
+    if (
+      allowedRoutes.some((route) =>
+        request.nextUrl.pathname.startsWith(route)
+      ) ||
+      exactRoutes.some((route) => request.nextUrl.pathname === route)
+    ) {
+      return nextResponse;
+    }
+    let callback = request.nextUrl.pathname;
+    if (request.nextUrl.search) {
+      callback += request.nextUrl.search;
+    }
+    return NextResponse.redirect(
+      new URL(
+        `/sign-in?callbackUrl=${encodeURIComponent(callback)}`,
+        request.url
+      )
+    );
+  }
+
   return response;
 }
 

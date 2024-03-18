@@ -1,4 +1,4 @@
-import "../globals.css";
+import "./globals.css";
 
 import { Toaster } from "@/components/ui/sonner";
 import { Providers } from "@/components/providers";
@@ -15,16 +15,19 @@ export const metadata = {
 
 export default function RootLayout({
   children,
-  params: { locale },
 }: {
   children: React.ReactNode;
-  params: { locale: string };
 }) {
   return (
-    <Providers locale={locale}>
-      {children}
-      <Toaster />
-    </Providers>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className="bg-background text-foreground"
+        suppressHydrationWarning={true}
+      >
+        {children}
+        <Toaster />
+      </body>
+    </html>
   );
 }
 

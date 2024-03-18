@@ -1,9 +1,14 @@
 "use client";
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  MutationCache,
+  QueryCache,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 import { Provider as JotaiProvider } from "jotai";
 import { I18nProviderClient } from "@repo/internationalization/lib/client";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { trpcLinks } from "@/lib/trpc/client";
@@ -16,9 +21,28 @@ type AppProviderProps = {
 };
 
 export function Providers({ children, locale }: AppProviderProps) {
-  const [queryClient] = useState(() => {
-    return new QueryClient();
-  });
+  const queryClient = useMemo(() => {
+    return new QueryClient({
+      defaultOptions: {
+        queries: {
+          refetchOnWindowFocus: false,
+          retry: false,
+        },
+      },
+      queryCache: new QueryCache({
+        onError: (error) => {
+          console.log(error.message);
+          console.log("Printing error", error);
+        },
+      }),
+      mutationCache: new MutationCache({
+        onError: (error: any) => {
+          console.log(error.message);
+          console.log("Printing mutation error", error);
+        },
+      }),
+    });
+  }, []);
 
   const [trpcClient] = useState(() => {
     return api.createClient({

@@ -8,15 +8,13 @@ import { getCurrentUser, signOut } from "@repo/supabase/services/auth";
 export default async function AuthButton() {
   const t = await getI18n();
 
-  const {
-    data: { user },
-  } = await getCurrentUser();
+  const user = await getCurrentUser();
 
   const onSignOut = async () => {
     "use server";
 
     await signOut();
-    return redirect("/login");
+    return redirect("/sign-in");
   };
 
   return user ? (
@@ -31,7 +29,7 @@ export default async function AuthButton() {
     </div>
   ) : (
     <Link
-      href="/login"
+      href="/sign-in"
       className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
     >
       Login

@@ -7,7 +7,6 @@ import { db } from "@repo/drizzle";
 
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 
-import { callProcedure } from "@trpc/server";
 import { observable } from "@trpc/server/observable";
 import { type TRPCErrorResponse } from "@trpc/server/rpc";
 import { type inferRouterInputs, type inferRouterOutputs } from "@trpc/server";
@@ -30,6 +29,7 @@ export const createTRPCContext = async (opts: { headers: Headers }) => {
 
 const t = initTRPC.context<typeof createTRPCContext>().create({
   transformer: superjson,
+
   errorFormatter({ shape, error }) {
     console.log(error);
     return {
@@ -70,7 +70,6 @@ export const privateProcedure = t.procedure.use(enforceUserIsAuthed);
 
 export {
   fetchRequestHandler,
-  callProcedure,
   observable,
   TRPCErrorResponse,
   inferRouterInputs,
