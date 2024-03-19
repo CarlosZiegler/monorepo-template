@@ -12,6 +12,8 @@
     "services/auth.ts"
   ],
   "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "check:types": "tsc --noEmit",
     "lint": "eslint .",
     "env:load": "dotenv -e ../../.env --"
   },

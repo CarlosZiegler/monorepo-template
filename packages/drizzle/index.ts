@@ -6,11 +6,9 @@ import { env } from "@repo/env";
 
 type DBType = PostgresJsDatabase<typeof schema>;
 declare global {
-  // biome-ignore lint/style/noVar: <explanation>
   var db: DBType | undefined;
 }
 
-// biome-ignore lint/suspicious/noRedeclare: <explanation>
 let db: DBType;
 export const client = postgres(env.DATABASE_URL);
 const config = {

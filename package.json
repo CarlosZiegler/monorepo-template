@@ -2,6 +2,8 @@
   "name": "saas-supabase-template",
   "private": true,
   "scripts": {
+    "clean:workspaces": "turbo clean",
+    "check:types": "turbo typecheck",
     "build": "turbo run build",
     "dev": "turbo dev",
     "lint": "turbo lint",

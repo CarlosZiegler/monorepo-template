@@ -5,16 +5,30 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "check:types": "tsc --noEmit",
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-email/components": "0.0.15",
+    "@repo/internationalization": "workspace:*",
     "@repo/env": "workspace:*",
     "nanoid": "^5.0.6",
+    "react-email": "2.1.0",
     "resend": "^3.2.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@types/node": "20.11.30",
+    "@types/react": "18.2.67",
+    "@types/react-dom": "18.2.22",
     "typescript": "^5.4.2"
   },
   "eslintConfig": {

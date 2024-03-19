@@ -9,6 +9,12 @@
     "lint": {
       "dependsOn": ["^lint"]
     },
+    "typecheck": {
+      "outputs": ["node_modules/.cache/tsbuildinfo.json"]
+    },
+    "clean": {
+      "cache": false
+    },
     "dev": {
       "cache": false,
       "persistent": true
