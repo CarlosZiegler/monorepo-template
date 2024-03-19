@@ -15,15 +15,10 @@ const allowedRoutes = [
 const exactRoutes = ["/", "/de", "/en"];
 
 export async function middleware(request: NextRequest) {
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-url", request.url);
-
   const nextResponse = I18nMiddleware(request);
-  nextResponse.headers.set("x-url", request.url);
 
   const { error, response } = await updateSession(request, nextResponse);
 
-  console.log("patch name", request.nextUrl.pathname);
   if (error?.status === 401) {
     if (
       allowedRoutes.some((route) =>

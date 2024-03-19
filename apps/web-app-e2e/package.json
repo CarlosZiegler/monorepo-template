@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test":"npx playwright test"
+    "clean": "rm -rf .turbo node_modules",
+    "check:types": "tsc --noEmit",
+    "test": "npx playwright test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.42.1",
-    "@types/node": "^20.11.27"
+    "@types/node": "^20.11.30"
   }
 }

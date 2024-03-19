@@ -17,9 +17,11 @@ export default function AuthProvider({
 
   useEffect(() => {
     if (error?.data?.httpStatus === 401) {
-      queryClient.clear();
       router.replace("/sign-in");
     }
+    return () => {
+      queryClient.clear();
+    };
   }, [error, queryClient, router]);
 
   if (isLoading) {

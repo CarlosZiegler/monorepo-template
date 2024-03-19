@@ -5,12 +5,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "check:types": "tsc --noEmit",
     "lint": "eslint ."
   },
   "dependencies": {
     "@repo/env": "workspace:*",
-    "openai": "^4.29.1",
-    "ai": "^3.0.12"
+    "openai": "^4.29.2",
+    "ai": "^3.0.13"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

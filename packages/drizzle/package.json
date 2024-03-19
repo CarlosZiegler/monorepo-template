@@ -20,15 +20,15 @@
   "dependencies": {
     "@repo/env": "workspace:*",
     "dotenv-cli": "7.4.1",
-    "drizzle-orm": "^0.30.2",
+    "drizzle-orm": "^0.30.4",
     "postgres": "^3.4.3",
     "zod": "^3.22.4"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@types/eslint": "^8.56.5",
-    "@types/node": "^20.11.28",
+    "@types/eslint": "^8.56.6",
+    "@types/node": "^20.11.30",
     "drizzle-kit": "^0.20.14",
     "eslint": "^8.57.0",
     "typescript": "^5.4.2"

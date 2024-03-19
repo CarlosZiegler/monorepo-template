@@ -1,5 +1,9 @@
 {
   "extends": "@repo/typescript-config/lib.json",
+  "compilerOptions": {
+    "strict": true,
+    "jsx": "preserve"
+  },
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"]
 }
