@@ -1,0 +1,29 @@
+{
+  "name": "@repo/actions",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@repo/drizzle": "workspace:*",
+    "@repo/env": "workspace:*",
+    "@repo/supabase": "workspace:*",
+    "@repo/internationalization": "workspace:*",
+    "@trpc/server": "next",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@repo/eslint-config": "workspace:*",
+    "typescript": "^5.4.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@repo/eslint-config/lib"
+    ]
+  }
+}
