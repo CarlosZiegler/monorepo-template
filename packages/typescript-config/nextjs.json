@@ -21,6 +21,9 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@ui/*": ["../../packages/ui/*"]
+    }
   }
 }

@@ -1,6 +1,7 @@
-import "./globals.css";
+import { Providers } from "../../components/providers";
+import "../globals.css";
 
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "@repo/ui/components/ui/sonner";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -14,19 +15,16 @@ export const metadata = {
 
 export default function RootLayout({
   children,
+  params: { locale },
 }: {
   children: React.ReactNode;
+  params: { locale: string };
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className="bg-background text-foreground"
-        suppressHydrationWarning={true}
-      >
-        {children}
-        <Toaster />
-      </body>
-    </html>
+    <Providers locale={locale}>
+      {children}
+      <Toaster />
+    </Providers>
   );
 }
 

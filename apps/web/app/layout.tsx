@@ -1,6 +1,5 @@
+import { Toaster } from "@repo/ui/components/ui/sonner";
 import "./globals.css";
-
-import { Toaster } from "@/components/ui/sonner";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
