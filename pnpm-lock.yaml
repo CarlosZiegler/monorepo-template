@@ -21,7 +21,7 @@ importers:
         specifier: latest
         version: 1.12.5
 
-  apps/web:
+  apps/dashboard:
     dependencies:
       '@hookform/resolvers':
         specifier: ^3.3.4
