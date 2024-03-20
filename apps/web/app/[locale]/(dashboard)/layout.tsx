@@ -1,8 +1,8 @@
 "use client";
 
-import { Sidebar } from "lucide-react";
 import AuthProvider from "../../../components/auth-provider";
 import Header from "../../../components/header";
+import Sidebar from "../../../components/sidebar";
 
 export const dynamic = "force-dynamic";
 
