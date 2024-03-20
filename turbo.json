@@ -19,5 +19,6 @@
       "cache": false,
       "persistent": true
     }
-  }
+  },
+  "globalEnv": ["VERCEL_URL"]
 }

@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { SubmitButton } from "./submit-button";
 import { createServerClient } from "@repo/supabase/server";
-import { signUpWithPasswordCredentials } from "@repo/supabase";
+import { signUpWithPasswordCredentials } from "@repo/supabase/services/auth";
 
 export default function Login({
   searchParams,
