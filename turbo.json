@@ -20,5 +20,5 @@
       "persistent": true
     }
   },
-  "globalEnv": ["VERCEL_URL"]
+  "globalEnv": ["VERCEL_URL", "SENTRY_DNS"]
 }

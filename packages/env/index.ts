@@ -22,6 +22,7 @@ export const env = createEnv({
     NEXT_PUBLIC_VERCEL_URL: z.string().url().min(1),
     NEXT_PUBLIC_SUPABASE_URL: z.string().url().min(1),
     NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
+
     NEXT_PUBLIC_NODE_ENV: z
       .enum(["development", "production", "test"])
       .default("development"),
@@ -30,12 +31,10 @@ export const env = createEnv({
     VERCEL_ENV: z
       .enum(["production", "preview", "development"])
       .default("development"),
-    SENTRY_DNS: z.string(),
   },
   runtimeEnv: {
     VERCEL_ENV: process.env.VERCEL_ENV,
     NODE_ENV: process.env.NODE_ENV,
-    SENTRY_DNS: process.env.SENTRY_DNS,
 
     // Backend environment variables
     DATABASE_URL: process.env.DATABASE_URL,
@@ -58,3 +57,5 @@ export const env = createEnv({
   },
   emptyStringAsUndefined: true,
 });
+
+console.log(env);
