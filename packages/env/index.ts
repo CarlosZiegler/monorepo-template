@@ -30,10 +30,12 @@ export const env = createEnv({
     VERCEL_ENV: z
       .enum(["production", "preview", "development"])
       .default("development"),
+    SENTRY_DNS: z.string(),
   },
   runtimeEnv: {
     VERCEL_ENV: process.env.VERCEL_ENV,
     NODE_ENV: process.env.NODE_ENV,
+    SENTRY_DNS: process.env.SENTRY_DNS,
 
     // Backend environment variables
     DATABASE_URL: process.env.DATABASE_URL,

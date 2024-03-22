@@ -7,7 +7,7 @@ import { env } from "@repo/env";
 import * as Sentry from "@sentry/nextjs";
 
 Sentry.init({
-  dsn: "https://162ade081d4f291ccf8dc1cc9d417328@o346963.ingest.us.sentry.io/4506252590055424",
+  dsn: env.SENTRY_DNS,
   enabled: env.NODE_ENV === "production",
 
   // Adjust this value in production, or use tracesSampler for greater control
