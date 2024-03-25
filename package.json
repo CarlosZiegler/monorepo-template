@@ -16,6 +16,15 @@
     "prettier": "^3.2.5",
     "turbo": "^1.13.0"
   },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@babel/*",
+        "expo-modules-*",
+        "typescript"
+      ]
+    }
+  },
   "packageManager": "pnpm@8.9.0",
   "engines": {
     "node": ">=18"

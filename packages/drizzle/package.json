@@ -12,7 +12,7 @@
     "db:push": "pnpm env:load drizzle-kit push:pg",
     "db:check": "pnpm env:load drizzle-kit check:pg",
     "lint": "eslint .",
-    "env:load": "dotenv -e ../../.env --"
+    "env:load": "dotenv -e ../../.env.local --"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +31,7 @@
     "@types/node": "^20.11.30",
     "drizzle-kit": "^0.20.14",
     "eslint": "^8.57.0",
+    "pg": "^8.11.3",
     "typescript": "^5.4.3"
   }
 }
