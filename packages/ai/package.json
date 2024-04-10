@@ -11,13 +11,13 @@
   },
   "dependencies": {
     "@repo/env": "workspace:*",
-    "openai": "^4.29.2",
-    "ai": "^3.0.13"
+    "openai": "^4.33.0",
+    "ai": "^3.0.20"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@repo/eslint-config": "workspace:*",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.5"
   },
   "eslintConfig": {
     "root": true,

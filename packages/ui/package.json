@@ -9,12 +9,12 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^20.11.30",
-    "@types/react": "^18.2.69",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.75",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.4.3"
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -50,11 +50,11 @@
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.0.0",
-    "input-otp": "^1.2.3",
-    "lucide-react": "^0.363.0",
+    "input-otp": "^1.2.4",
+    "lucide-react": "^0.364.0",
     "next-themes": "^0.3.0",
     "react-day-picker": "^8.10.0",
-    "react-hook-form": "^7.51.1",
+    "react-hook-form": "^7.51.2",
     "react-resizable-panels": "^2.0.16",
     "sonner": "^1.4.41",
     "tailwind-merge": "^2.2.2",
@@ -62,7 +62,7 @@
     "vaul": "^0.9.0",
     "zod": "^3.22.4",
     "autoprefixer": "10.4.19",
-    "framer-motion": "^11.0.20",
+    "framer-motion": "^11.0.24",
     "postcss": "8.4.38"
   },
   "exports": {
