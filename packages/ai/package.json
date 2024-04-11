@@ -12,7 +12,7 @@
   "dependencies": {
     "@repo/env": "workspace:*",
     "openai": "^4.33.0",
-    "ai": "^3.0.20"
+    "ai": "^3.0.21"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

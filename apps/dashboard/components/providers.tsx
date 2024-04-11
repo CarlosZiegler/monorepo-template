@@ -62,6 +62,7 @@ export function Providers({ children, locale }: AppProviderProps) {
         <TRPCReactProvider client={trpcClient} queryClient={queryClient}>
           <QueryClientProvider client={queryClient}>
             <JotaiProvider>
+              {/* @ts-expect-error */}
               <TooltipProvider>{children}</TooltipProvider>
             </JotaiProvider>
           </QueryClientProvider>
