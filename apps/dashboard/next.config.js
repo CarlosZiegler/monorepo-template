@@ -6,7 +6,7 @@ const nextConfig = {
   //   },
   // },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   transpilePackages: ["@repo/ui"],
 };
