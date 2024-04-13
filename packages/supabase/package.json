@@ -21,17 +21,17 @@
   "license": "ISC",
   "dependencies": {
     "@supabase/ssr": "^0.3.0",
-    "@supabase/supabase-js": "^2.42.1",
+    "@supabase/supabase-js": "^2.42.3",
     "@repo/drizzle": "workspace:*",
     "@repo/env": "workspace:*",
     "dotenv-cli": "7.4.1",
-    "next": "^14.2.0",
+    "next": "^14.2.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@types/eslint": "^8.56.8",
+    "@types/eslint": "^8.56.9",
     "@types/node": "^20.12.7",
     "drizzle-kit": "^0.20.14",
     "eslint": "^9.0.0",
