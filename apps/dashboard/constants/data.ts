@@ -89,6 +89,22 @@ export const users: User[] = [
     verified: false,
     status: "Active",
   },
+  {
+    id: 11,
+    name: "Sophia Brown",
+    company: "TechSolutions",
+    role: "Backend Developer",
+    verified: true,
+    status: "Active",
+  },
+  {
+    id: 12,
+    name: "William Jones",
+    company: "CodeTech",
+    role: "Fullstack Developer",
+    verified: false,
+    status: "Active",
+  },
 ];
 
 export type Employee = {
@@ -122,29 +138,5 @@ export const navItems: NavItem[] = [
     href: "/dashboard/user",
     icon: "user",
     label: "user",
-  },
-  {
-    title: "Employee",
-    href: "/dashboard/employee",
-    icon: "employee",
-    label: "employee",
-  },
-  {
-    title: "Profile",
-    href: "/dashboard/profile",
-    icon: "profile",
-    label: "profile",
-  },
-  {
-    title: "Kanban",
-    href: "/dashboard/kanban",
-    icon: "kanban",
-    label: "kanban",
-  },
-  {
-    title: "Login",
-    href: "/sign-in",
-    icon: "login",
-    label: "login",
   },
 ];
