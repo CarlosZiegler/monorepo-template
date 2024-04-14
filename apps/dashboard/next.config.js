@@ -5,6 +5,9 @@ const nextConfig = {
   //     fullUrl: true,
   //   },
   // },
+  typescript: {
+    ignoreBuildErrors: false,
+  },
   transpilePackages: ["@repo/ui"],
 };
 
