@@ -1,4 +1,5 @@
 import {
+  Provider,
   SignInWithPasswordCredentials,
   SignUpWithPasswordCredentials,
 } from "@supabase/supabase-js";
@@ -38,6 +39,21 @@ export const signUpWithPasswordCredentials = async ({
     email,
     password,
     options,
+  });
+};
+export const signInWithOAuth = async ({
+  provider,
+  redirectTo,
+}: {
+  redirectTo: string;
+  provider: Provider;
+}) => {
+  const supabaseClient = createServerClient();
+  return supabaseClient.auth.signInWithOAuth({
+    provider: provider,
+    options: {
+      redirectTo: redirectTo,
+    },
   });
 };
 

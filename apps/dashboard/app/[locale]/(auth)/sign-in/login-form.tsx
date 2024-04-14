@@ -21,12 +21,10 @@ import { z } from "zod";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { api } from "../../../../lib/trpc/react";
+import { GoogleSignIn } from "../../../../components/google-sign-in";
 
-export const signupSchema = z.object({
-  email: z
-    .string()
-    .nonempty("This is required")
-    .email({ message: "Must be a valid email" }),
+export const signUpSchema = z.object({
+  email: z.string().email({ message: "Must be a valid email" }),
   password: z
     .string({ required_error: "Password is required" })
     .min(8, "Password must be more than 8 characters")
@@ -132,22 +130,8 @@ export default function LoginForm() {
               Or continue with
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
-            <Button variant="ghost" type="button">
-              <Icons.google className="mr-2 h-4 w-4" />
-              Google
-            </Button>
-            <Button
-              variant="ghost"
-              type="button"
-              onClick={() => {
-                // implement google auth
-                console.log("clicked");
-              }}
-            >
-              <Icons.gitHub className="mr-2 h-4 w-4" />
-              Github
-            </Button>
+          <div className="flex justify-center align-middle w-full center">
+            <GoogleSignIn />
           </div>
         </CardContent>
       </form>
