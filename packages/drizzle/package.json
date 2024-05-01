@@ -20,17 +20,17 @@
   "dependencies": {
     "@repo/env": "workspace:*",
     "dotenv-cli": "7.4.1",
-    "drizzle-orm": "^0.30.8",
+    "drizzle-orm": "^0.30.9",
     "postgres": "^3.4.4",
-    "zod": "^3.22.4"
+    "zod": "^3.23.5"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@types/eslint": "^8.56.9",
+    "@types/eslint": "^8.56.10",
     "@types/node": "^20.12.7",
-    "drizzle-kit": "^0.20.14",
-    "eslint": "^9.0.0",
+    "drizzle-kit": "^0.20.17",
+    "eslint": "^9.1.1",
     "pg": "^8.11.5",
     "typescript": "^5.4.5"
   }
