@@ -31,6 +31,7 @@
     "@testing-library/jest-dom": "^6.4.2",
     "@trpc/client": "next",
     "@trpc/react-query": "next",
+    "@vercel/analytics": "^1.2.2",
     "autoprefixer": "10.4.19",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

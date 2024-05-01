@@ -1,4 +1,5 @@
 import { Toaster } from "@repo/ui/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const defaultUrl = process.env.VERCEL_URL
@@ -24,6 +25,7 @@ export default function RootLayout({
       >
         {children}
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
