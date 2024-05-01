@@ -8,12 +8,15 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "vercel:update:env": "vercel env add"
+    "vercel:update:env": "vercel env add",
+    "sync:list": "pnpm exec syncpack -- list",
+    "sync:list-mistmakes": "syncpack list-mismatches"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "prettier": "^3.2.5",
+    "syncpack": "^12.3.2",
     "turbo": "^1.13.3"
   },
   "pnpm": {
